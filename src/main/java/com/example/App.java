@@ -51,65 +51,18 @@ public class App extends PApplet {
 		PApplet.main("com.example.App");
 		// TODO Auto-generated method stub
 
-		// run the unit tests
-		// int whichTest = Integer.parseInt(args[0]);
-		// println("this is whichtest = " + whichTest);
-		// unitTests(whichTest);
-
-		// // // markov generator fucntions
-		// testAndTrainProbGenMar();
-		// generateMelodyM();
-		// // // unitTest2();
-
-		// if(whichTest ==0){
-		// testAndTrainProbGen();
-		// }else if(whichTest ==1){
-		// testAndTrainProbGen();
-		// generateMelody();
-		// unitTest3();
-		// }else if(whichTest ==2 ){
-		// // testAndTrainProbGen();
-		// generateMelody();
-		// unitTest3();
-		// }else if(whichTest == 3){
-		// testAndTrainProbGenMar();
-		// }else if( whichTest == 4){
-		// // testAndTrainProbGenMar();
-		// generateMelodyM();
-		// unitTest2();
-		// }else if(whichTest == 5){
-		// testAndTrainProbGenMar();
-		// generateMelodyM();
-		// unitTest2();
-		// }
-
-		// // regular prob gen functions
-		// // testAndTrainProbGen();
-		// // generateMelody();
-		// playMelody();
-
-		// uncomment to debug your midi file
-		// this code MUST be commited when submitting unit tests or any code to github
-		// playMidiFileDebugTest(filePath);
 	}
 
 	public void settings() {
+		//set size of canvas, have it at 500,500 for testing purposes 
 		// fullScreen();
 		// background(255);
 		size(500, 500);
-		int whichTest = Integer.parseInt(args[0]);
-		println("this is whichtest = " + whichTest);
-		setup();
-				unitTests(whichTest);
-
-
-		// background(247, 121, 233);
 
 	}
 
 	public void draw() {
-		// String finalNum = "s";
-		// background(247, 121, 233);
+		//display basically runs the whole program 
 		g.display();
 		// int s = g.getState();
 
@@ -118,7 +71,14 @@ public class App extends PApplet {
 	public void keyPressed() {
 
 		int s = g.getState();
+		//if its on the start screen pressing any button except enter moves to the next screen 
+		if (s == 1) {
+			if (key != ENTER) {
+				g.changeState();
+			}
+		}
 		if (s == 2) {
+			//draw background 
 			// draw outerSquare
 			noStroke();
 			fill(247, 121, 233);
@@ -128,24 +88,15 @@ public class App extends PApplet {
 			fill(252, 235, 250);
 			rect(50, 50, width - 100, height - 100);
 
-			// textSize(50);
-			// if (name1Entered == false) {
-			// fill(0);
-			// textSize(20);
-			// text("Please Input first name: " + text1, width / 4, height / 3);
-			// }
-			// if (name1Entered == true) {
-			// fill(0);
-			// textSize(20);
-			// text("Please Input first name: " + text1, width / 3, height / 2);
-			// }
 
 			// println(text1);
 			if (key == BACKSPACE) {
+				//makes it so you can actually use the backspace button 
 				if (text1.length() > 0) {
 					text1 = text1.substring(0, text1.length() - 1);
 				} // if
 			} else if (key == ENTER) {
+				//if key =enter takes the input and gives it to the gui class 
 				if (name1Entered == false && name2Entered == false) {
 					println("Enter Pressed = " + text1);
 					finalName = text1;
@@ -160,11 +111,13 @@ public class App extends PApplet {
 					g.changeState();
 				}
 			} else if (key != ENTER) {
-
+				//if its not enter adds another letter to the word
 				String k = String.valueOf(key);
 				text1 = text1.concat(k);
 				// text1 = temp;
 			}
+
+			//priints the letters 
 			textSize(50);
 			if (name1Entered == false) {
 				fill(0);
@@ -177,11 +130,7 @@ public class App extends PApplet {
 				text("Please Input first name: " + text1, width / 3, height / 2);
 			}
 		}
-		if (s == 1) {
-			if (keyCode == RIGHT) {
-				g.changeState();
-			}
-		}
+		
 	}
 
 	// doing all the setup stuff
@@ -195,34 +144,34 @@ public class App extends PApplet {
 		midiSetup(filePath);
 	}
 
-	public static void unitTests(int whichTest) {
-		// setup();
-		testAndTrainProbGenMar();
-		generateMelodyM();
-		// // // unitTest2();
-		if (whichTest == 0) {
-			testAndTrainProbGen();
-		} else if (whichTest == 1) {
-			testAndTrainProbGen();
-			generateMelody();
-			unitTest3();
-		} else if (whichTest == 2) {
-			// testAndTrainProbGen();
-			generateMelody();
-			unitTest3();
-		} else if (whichTest == 3) {
-			testAndTrainProbGenMar();
-		} else if (whichTest == 4) {
-			// testAndTrainProbGenMar();
-			generateMelodyM();
-			unitTest2();
-		} else if (whichTest == 5) {
-			testAndTrainProbGenMar();
-			generateMelodyM();
-			unitTest2();
-		}
+	// public static void unitTests(int whichTest) {
+	// // setup();
+	// testAndTrainProbGenMar();
+	// generateMelodyM();
+	// // // // unitTest2();
+	// if (whichTest == 0) {
+	// testAndTrainProbGen();
+	// } else if (whichTest == 1) {
+	// testAndTrainProbGen();
+	// generateMelody();
+	// unitTest3();
+	// } else if (whichTest == 2) {
+	// // testAndTrainProbGen();
+	// generateMelody();
+	// unitTest3();
+	// } else if (whichTest == 3) {
+	// testAndTrainProbGenMar();
+	// } else if (whichTest == 4) {
+	// // testAndTrainProbGenMar();
+	// generateMelodyM();
+	// unitTest2();
+	// } else if (whichTest == 5) {
+	// testAndTrainProbGenMar();
+	// generateMelodyM();
+	// unitTest2();
+	// }
 
-	}
+	// }
 
 	public static void testAndTrainProbGen() {
 		// declare and test prob gen

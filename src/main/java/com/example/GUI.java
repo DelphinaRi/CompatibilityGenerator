@@ -20,23 +20,19 @@ public class GUI {
 
     void display() {
 
-        // if (state == 0) {
-        //     l.background(255);
-        //     l.text("click button to start", l.width / 2, l.height / 2);
-        //     // nextButton();
-        //     l.println(state);
-        // }
+        //sets whats displayed on the screen
         if (state == 1) {
+            //main game start background
             drawMainBackground();
             // nextButton();
-            // l.println(state);
-        }
-        if (state == 3) {
+        }if (state == 3) {
+            //state 2 is entirely done by the keyPressed function because processing keywords for enter and backspace do not work outside the main file
+            //aftere the names are taken in by keyPressed this does the training and generation on them
             nameScreen1();
-
             // nextButton();
-            // l.println(state);
-        } else if (state > 2) {
+        } else if (state > 3) {
+            //for the final version there will be more than 3 states 
+            //right now it displays the game over screen and the name generated from the generation
             l.background(255);
             l.fill(0); 
             l.text("Game Over", l.width / 2, l.height / 2);
@@ -45,20 +41,17 @@ public class GUI {
             // l.println(state);
 
         }
-        // nextButton();
 
     }
 
     void drawMainBackground() {
         l.background(247, 121, 233);
-        // nextButton();
 
         // displaying main title
         String s = "Compatibility Generator";
         l.fill(0);
         l.textSize(75);
         l.text(s, 300, l.width / 5);
-        // nextButton();
 
     }
 
@@ -75,16 +68,20 @@ public class GUI {
 
         l.println(name1);
         l.println(name2);
+        //tells if the name has been input or not yet 
         if (name1 != "a") {
             name1Entered = true;
         }
         if (name2 != "b") {
             name2Entered = true;
         }
+
+        //adds the names together 
         String namesTogether = name1 + name2;
         // l.println(namesTogether);
         ArrayList<String> names = new ArrayList<String>();
 
+        //puts the letters of the names in a string arrayList 
         for (int i = 0; i < namesTogether.length(); i++) {
             char a = namesTogether.charAt(i);
             String b = String.valueOf(a);
@@ -92,16 +89,10 @@ public class GUI {
             names.add(b);
         }
 
-        // for(int i =0; i < names.size();i++){
-        // l.println(names.get(i));
-        // }
-
-        // public static void testAndTrainProbGen() {
-        // declare and test prob gen
         if (name1Entered == true && name2Entered == true) {
+            //if both names are submitted so it doesnt run continuously
             MarkovChainGenerator<String> nameGen = new MarkovChainGenerator<String>();
-            // ProbabilityGenerator<Double> rythemGen = new ProbabilityGenerator<Double>();
-
+            //trains and generates 
             nameGen.trainM(names);
             ArrayList<String> babyName = nameGen.generateM(namesTogether.length()/2);
 
@@ -110,27 +101,19 @@ public class GUI {
                 // l.print(babyName.get(i));
             }
             l.println(finalName);
+            //once the final name is gernated it goes to the next sceren
             changeState();
         }
 
-        // rythemGen.train(midiNotes.getRhythmArray());
-        // // System.out.println("Starting pre print");
-
-        // nameGen.printProbabilityDistribution(false);
-
-        // rythemGen.printProbabilityDistribution(false);
-
-        // }
 
     }
 
     void changeState() {
         state++;
-        // need if statement
-        // if state == max screen rest to 0
     }
 
     void nextButton() {
+        //ignore this, might use this is next part of prokect idk yet
         int squareX = l.width - 300;
         int squareY = 0 + 200;
         int squareAdd = 200;
@@ -150,6 +133,8 @@ public class GUI {
         return state;
     }
 
+
+    //these 2 fucntions get the name from the keyPressed fucntion
     void getName(String name) {
         name1 = name;
     }
