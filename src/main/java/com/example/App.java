@@ -23,10 +23,16 @@ public class App extends PApplet {
 	static MelodyPlayer player; // play a midi sequence
 	static MidiFileToNotes midiNotes; // read a midi file
 	static int noteCount = 0;
+	// ArrayList<String> dates = new ArrayList<String>();
 	String text1 = "";
 	String finalName = "d";
+	String text2 = "";
+	String finalDate = "d";
 	boolean name1Entered = false;
 	boolean name2Entered = false;
+
+	boolean date1entered = false;
+	boolean date2entered = false;
 	GUI g = new GUI(this);
 
 	// int whichTest = MAX_INT;
@@ -54,7 +60,7 @@ public class App extends PApplet {
 	}
 
 	public void settings() {
-		//set size of canvas, have it at 500,500 for testing purposes 
+		// set size of canvas, have it at 500,500 for testing purposes
 		// fullScreen();
 		// background(255);
 		size(500, 500);
@@ -62,7 +68,7 @@ public class App extends PApplet {
 	}
 
 	public void draw() {
-		//display basically runs the whole program 
+		// display basically runs the whole program
 		g.display();
 		// int s = g.getState();
 
@@ -71,14 +77,14 @@ public class App extends PApplet {
 	public void keyPressed() {
 
 		int s = g.getState();
-		//if its on the start screen pressing any button except enter moves to the next screen 
+		// if its on the start screen pressing any button except enter moves to the next
+		// screen
 		if (s == 1) {
 			if (key != ENTER) {
 				g.changeState();
 			}
-		}
-		if (s == 2) {
-			//draw background 
+		} else if (s == 2) {
+			// draw background
 			// draw outerSquare
 			noStroke();
 			fill(247, 121, 233);
@@ -88,15 +94,14 @@ public class App extends PApplet {
 			fill(252, 235, 250);
 			rect(50, 50, width - 100, height - 100);
 
-
 			// println(text1);
 			if (key == BACKSPACE) {
-				//makes it so you can actually use the backspace button 
+				// makes it so you can actually use the backspace button
 				if (text1.length() > 0) {
 					text1 = text1.substring(0, text1.length() - 1);
 				} // if
 			} else if (key == ENTER) {
-				//if key =enter takes the input and gives it to the gui class 
+				// if key =enter takes the input and gives it to the gui class
 				if (name1Entered == false && name2Entered == false) {
 					println("Enter Pressed = " + text1);
 					finalName = text1;
@@ -111,26 +116,77 @@ public class App extends PApplet {
 					g.changeState();
 				}
 			} else if (key != ENTER) {
-				//if its not enter adds another letter to the word
+				// if its not enter adds another letter to the word
 				String k = String.valueOf(key);
 				text1 = text1.concat(k);
 				// text1 = temp;
 			}
 
-			//priints the letters 
+			// priints the letters
 			textSize(50);
 			if (name1Entered == false) {
 				fill(0);
 				textSize(20);
-				text("Please Input first name: " + text1, width / 4, height / 3);
+				text("Person 1 input name: " + text1, width / 4, height / 3);
 			}
 			if (name1Entered == true) {
 				fill(0);
 				textSize(20);
-				text("Please Input first name: " + text1, width / 3, height / 2);
+				text("Person 2 input name: " + text1, width / 3, height / 2);
+			}
+		} else if (s == 4) {
+			// draw background
+			// draw outerSquare
+			noStroke();
+			fill(247, 121, 233);
+			rect(0, 0, width, height);
+
+			// draw inner square
+			fill(252, 235, 250);
+			rect(50, 50, width - 100, height - 100);
+
+			// println(text1);
+			if (key == BACKSPACE) {
+				// makes it so you can actually use the backspace button
+				if (text2.length() > 0) {
+					text2 = text2.substring(0, text2.length() - 1);
+				} // if
+			} else if (key == ENTER) {
+				// if key =enter takes the input and gives it to the gui class
+				if (date1entered == false && date2entered == false) {
+					println("Enter Pressed = " + text2);
+					finalDate = text2;
+					println("Final = " + finalDate);
+					date1entered = true;
+					g.getDate(finalDate);
+					text2 = "";
+				} else if (date1entered == true && date2entered == false) {
+					finalDate = text2;
+					date2entered = true;
+					g.getDate(finalDate);
+					g.changeState();
+				}
+			} else if (key != ENTER) {
+				// if its not enter adds another letter to the word
+				String k = String.valueOf(key);
+				text2 = text2.concat(k);
+				// text1 = temp;
+			}
+
+			// prints the letters
+			textSize(50);
+			if (date1entered == false) {
+				fill(0);
+				textSize(20);
+				text("Person 1 input birthday: " + text2, width / 4, height / 3);
+			}
+			if (date1entered == true) {
+				fill(0);
+				textSize(20);
+				text("Person 2 input birthday: " + text2, width / 3, height / 2);
 			}
 		}
-		
+
 	}
 
 	// doing all the setup stuff
