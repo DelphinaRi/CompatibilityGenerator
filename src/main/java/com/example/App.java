@@ -34,6 +34,8 @@ public class App extends PApplet {
 	boolean date1entered = false;
 	boolean date2entered = false;
 	GUI g = new GUI(this);
+	// button b = new button(this, 0, 0, 200, 100, "click me");
+
 
 	// int whichTest = MAX_INT;
 
@@ -61,15 +63,27 @@ public class App extends PApplet {
 
 	public void settings() {
 		// set size of canvas, have it at 500,500 for testing purposes
-		// fullScreen();
+		fullScreen();
 		// background(255);
-		size(500, 500);
+		// size(500, 500);
 
 	}
 
 	public void draw() {
 		// display basically runs the whole program
 		g.display();
+		if (g.getReset() == true) {
+			text1 = "";
+			finalName = "d";
+			text2 = "";
+			finalDate = "d";
+			name1Entered = false;
+			name2Entered = false;
+
+			date1entered = false;
+			date2entered = false;
+		}
+		// b.display(); 
 		// int s = g.getState();
 
 	}
@@ -84,6 +98,17 @@ public class App extends PApplet {
 				g.changeState();
 			}
 		} else if (s == 2) {
+			// if (g.getReset() == true) {
+			// text1 = "";
+			// finalName = "d";
+			// text2 = "";
+			// finalDate = "d";
+			// name1Entered = false;
+			// name2Entered = false;
+
+			// date1entered = false;
+			// date2entered = false;
+			// }
 			// draw background
 			// draw outerSquare
 			noStroke();
