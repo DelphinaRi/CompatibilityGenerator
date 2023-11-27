@@ -27,6 +27,7 @@ public class button{
     }
 
     boolean display(){
+        l.textSize(10);
         l.stroke(0);
         l.fill(255); 
         l.rect(x,y,w,h);

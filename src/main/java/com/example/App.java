@@ -36,7 +36,6 @@ public class App extends PApplet {
 	GUI g = new GUI(this);
 	// button b = new button(this, 0, 0, 200, 100, "click me");
 
-
 	// int whichTest = MAX_INT;
 
 	// make cross-platform
@@ -83,7 +82,7 @@ public class App extends PApplet {
 			date1entered = false;
 			date2entered = false;
 		}
-		// b.display(); 
+		// b.display();
 		// int s = g.getState();
 
 	}
@@ -98,6 +97,8 @@ public class App extends PApplet {
 				g.changeState();
 			}
 		} else if (s == 2) {
+			String topPart = "Name your child";
+			String bottomPart = "Do NOT input uppercase letters";
 			// if (g.getReset() == true) {
 			// text1 = "";
 			// finalName = "d";
@@ -118,6 +119,13 @@ public class App extends PApplet {
 			// draw inner square
 			fill(252, 235, 250);
 			rect(50, 50, width - 100, height - 100);
+
+			stroke(0);
+			fill(0);
+			textSize(50);
+			text(topPart, width / 2 - 200, 100);
+			textSize(10);
+			text(bottomPart, width / 2 - 75, 150);
 
 			// println(text1);
 			if (key == BACKSPACE) {
@@ -152,14 +160,17 @@ public class App extends PApplet {
 			if (name1Entered == false) {
 				fill(0);
 				textSize(20);
-				text("Person 1 input name: " + text1, width / 4, height / 3);
+				text("Player 1 Input Your First Name: " + text1, width / 4, height / 3 + 100);
 			}
 			if (name1Entered == true) {
 				fill(0);
 				textSize(20);
-				text("Person 2 input name: " + text1, width / 3, height / 2);
+				text("Person 2 Input your First name: " + text1, width / 4, height / 3 + 100);
 			}
 		} else if (s == 4) {
+			String topPart = "What will your child's birthday be";
+			String bottomPart = "Please input it in MM/DD/YYYY format";
+
 			// draw background
 			// draw outerSquare
 			noStroke();
@@ -169,6 +180,13 @@ public class App extends PApplet {
 			// draw inner square
 			fill(252, 235, 250);
 			rect(50, 50, width - 100, height - 100);
+
+			stroke(0);
+			fill(0);
+			textSize(50);
+			text(topPart, 0, 0);
+			textSize(10);
+			text(bottomPart, width / 2 - 75, 150);
 
 			// println(text1);
 			if (key == BACKSPACE) {
@@ -196,19 +214,19 @@ public class App extends PApplet {
 				String k = String.valueOf(key);
 				text2 = text2.concat(k);
 				// text1 = temp;
-			}
+			} else
 
-			// prints the letters
-			textSize(50);
+				// prints the letters
+				textSize(50);
 			if (date1entered == false) {
 				fill(0);
 				textSize(20);
-				text("Person 1 input birthday: " + text2, width / 4, height / 3);
+				text("Person 1 input birthday: " + text2, width / 4, height / 3 + 100);
 			}
 			if (date1entered == true) {
 				fill(0);
 				textSize(20);
-				text("Person 2 input birthday: " + text2, width / 3, height / 2);
+				text("Person 2 input birthday: " + text2, width / 4, height / 3 + 100);
 			}
 		}
 
