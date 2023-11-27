@@ -184,7 +184,7 @@ public class App extends PApplet {
 			stroke(0);
 			fill(0);
 			textSize(50);
-			text(topPart, 0, 0);
+			text(topPart, 250, 100);
 			textSize(10);
 			text(bottomPart, width / 2 - 75, 150);
 
@@ -221,12 +221,12 @@ public class App extends PApplet {
 			if (date1entered == false) {
 				fill(0);
 				textSize(20);
-				text("Person 1 input birthday: " + text2, width / 4, height / 3 + 100);
+				text("Person 1 Input your Birthday: " + text2, width / 4, height / 3 + 100);
 			}
 			if (date1entered == true) {
 				fill(0);
 				textSize(20);
-				text("Person 2 input birthday: " + text2, width / 4, height / 3 + 100);
+				text("Person 2 Input your Birthday: " + text2, width / 4, height / 3 + 100);
 			}
 		}
 

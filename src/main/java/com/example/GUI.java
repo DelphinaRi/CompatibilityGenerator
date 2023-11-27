@@ -8,7 +8,7 @@ import processing.core.PApplet;
 public class GUI {
     // global variables
     PApplet l;
-    int state = 1;
+    int state = 6;
     String name1 = "a";
     String name2 = "b";
     Boolean name1Entered = false;
@@ -66,34 +66,6 @@ public class GUI {
         if (state == 6) {
             askQuestionsPlayer1();
         }
-        // if (state == 7) {
-        // getIntelligence();
-        // // askQuestionsPlayer2();
-
-        // }
-        // // state++;
-        // }
-        // if (state == 7) {
-        // questionScreen2();
-        // }
-        // if (state == 8) {
-        // questionScreen3();
-        // }
-        // // if (state == 9) {
-        // // questionScreen4();
-        // // }
-        // // if (state == 10) {
-        // // questionScreen1();
-        // // }
-        // // if (state == 11) {
-        // // questionScreen2();
-        // // }
-        // // if (state == 12) {
-        // // questionScreen3();
-        // // }
-        // // if (state == 13) {
-        // // questionScreen4();
-        // // }
         if (state > 6) {
             // for the final version there will be more than 3 states
             // right now it displays the game over screen and the name generated from the
@@ -162,20 +134,19 @@ public class GUI {
         l.fill(252, 235, 250);
         l.rect(50, 50, l.width - 100, l.height - 100);
 
-        
-        String topPart = "What will your child's birthday be";
+        String topPart = "What will your child's birthday Be";
         String bottomPart = "Please input it in MM/DD/YYYY format";
 
         l.stroke(0);
         l.fill(0);
         l.textSize(50);
-        l.text(topPart, l.width / 2 - 200, 100);
+        l.text(topPart, 250, 100);
         l.textSize(10);
         l.text(bottomPart, l.width / 2 - 75, 150);
 
         l.fill(0);
         l.textSize(20);
-        l.text("Person 1 input birthday: " , l.width / 4, l.height / 3 + 100);
+        l.text("Person 1 input birthday: ", l.width / 4, l.height / 3 + 100);
 
         l.println(name1);
         l.println(name2);
@@ -237,13 +208,13 @@ public class GUI {
         l.fill(252, 235, 250);
         l.rect(50, 50, l.width - 100, l.height - 100);
 
-        String topPart = "What will your child's birthday be";
+        String topPart = "What will your child's birthday Be";
         String bottomPart = "Please input it in MM/DD/YYYY format";
 
         l.stroke(0);
         l.fill(0);
         l.textSize(50);
-        l.text(topPart, l.width / 2 - 200, 100);
+        l.text(topPart, 250, 100);
         l.textSize(10);
         l.text(bottomPart, l.width / 2 - 75, 150);
 
@@ -284,6 +255,18 @@ public class GUI {
         l.fill(252, 235, 250);
         l.rect(50, 50, l.width - 100, l.height - 100);
         l.stroke(0);
+
+        String topPart = "Will your child be smart or not";
+        String bottomPart = "Player 1 Answer";
+
+        l.stroke(0);
+        l.fill(0);
+        l.textSize(50);
+        l.text(topPart, 250, 100);
+        l.textSize(15);
+        l.text(bottomPart, l.width / 2 - 75, 35);
+        l.textSize(20);
+
         // if (i == 0) {
         question = "What is the capital of Lithuania?";
         answer1 = "Bucharest";
@@ -291,7 +274,7 @@ public class GUI {
         answer3 = "Tbilisi";
         correctAnswer = "Vilnius";
 
-        l.text(question, 0, 0, 500, 100);
+        l.text(question, l.width / 2 - 150, 120, 500, 100);
         button firstAnswer = new button(l, 225, 150, 125, 50, answer1, false);
         button secondButton = new button(l, 450, 150, 125, 50, answer2, false);
         button thirdButton = new button(l, 675, 150, 125, 50, correctAnswer, true);
@@ -335,13 +318,25 @@ public class GUI {
         l.fill(252, 235, 250);
         l.rect(50, 50, l.width - 100, l.height - 100);
         l.stroke(0);
+
+        String topPart = "Will your child be smart or not";
+        String bottomPart = "Player 1 Answer";
+
+        l.stroke(0);
+        l.fill(0);
+        l.textSize(50);
+        l.text(topPart, 250, 100);
+        l.textSize(15);
+        l.text(bottomPart, l.width / 2 - 75, 35);
+        l.textSize(20);
+
         question = "What is the smallest bone in the human body?";
         answer1 = " The phalanges, in your pinkies";
         answer2 = "The nasal shaft, in your nose";
         answer3 = "The cervical vertebrae, in your spine";
         correctAnswer = "The stapes bone, in your ear";
 
-        l.text(question, 0, 0, 500, 100);
+        l.text(question, l.width / 2 - 220, 120, 500, 100);
         button firstAnswer = new button(l, 225, 200, 125, 50, answer1, false);
         button secondButton = new button(l, 450, 200, 125, 50, correctAnswer, true);
         button thirdButton = new button(l, 675, 200, 125, 50, answer2, false);
@@ -382,13 +377,25 @@ public class GUI {
         l.fill(252, 235, 250);
         l.rect(50, 50, l.width - 100, l.height - 100);
         l.stroke(0);
+
+        String topPart = "Will your child be smart or not";
+        String bottomPart = "Player 1 Answer";
+
+        l.stroke(0);
+        l.fill(0);
+        l.textSize(50);
+        l.text(topPart, 250, 100);
+        l.textSize(15);
+        l.text(bottomPart, l.width / 2 - 75, 35);
+        l.textSize(20);
+
         question = "What country has competed the most times in the Summer Olympics yet has not won a gold medal?";
         answer1 = "Romania";
         answer2 = "Liechtenstein";
         answer3 = "Turkey";
         correctAnswer = "The Philippines";
 
-        l.text(question, 0, 0, 500, 100);
+        l.text(question, l.width/2-250, 120, 500, 100);
         button firstAnswer = new button(l, 225, 250, 125, 50, correctAnswer, true);
         button secondButton = new button(l, 450, 250, 125, 50, answer1, false);
         button thirdButton = new button(l, 675, 250, 125, 50, answer2, false);
@@ -429,13 +436,25 @@ public class GUI {
         l.fill(252, 235, 250);
         l.rect(50, 50, l.width - 100, l.height - 100);
         l.stroke(0);
+
+        String topPart = "Will your child be smart or not";
+        String bottomPart = "Player 1 Answer";
+
+        l.stroke(0);
+        l.fill(0);
+        l.textSize(50);
+        l.text(topPart, 250, 100);
+        l.textSize(15);
+        l.text(bottomPart, l.width / 2 - 75, 35);
+        l.textSize(20);
+
         question = "Who was the first woman ever inducted into the Rock and Roll Hall of Fame?";
         answer1 = "Madonna";
         answer2 = "Taylor Swift";
         answer3 = "Diana Ross";
         correctAnswer = "Aretha Franklin";
 
-        l.text(question, 0, 0, 500, 100);
+        l.text(question, l.width/2-375, 120, 800, 100);
         button firstAnswer = new button(l, 225, 300, 125, 50, answer3, false);
         button secondButton = new button(l, 450, 300, 125, 50, answer1, false);
         button thirdButton = new button(l, 675, 300, 125, 50, answer2, false);
@@ -487,6 +506,18 @@ public class GUI {
         l.fill(252, 235, 250);
         l.rect(50, 50, l.width - 100, l.height - 100);
         l.stroke(0);
+
+        String topPart = "Will your child be smart or not";
+        String bottomPart = "Player 2 Answer";
+
+        l.stroke(0);
+        l.fill(0);
+        l.textSize(50);
+        l.text(topPart, 250, 100);
+        l.textSize(15);
+        l.text(bottomPart, l.width / 2 - 75, 35);
+        l.textSize(20);
+
         // if (i == 0) {
         question = "What is the capital of Lithuania?";
         answer1 = "Bucharest";
@@ -772,6 +803,17 @@ public class GUI {
     }
 
     void askQuestionsPlayer1() {
+
+        String topPart = "Will your child be smart or not";
+        String bottomPart = "Player 1 Answer";
+
+        l.stroke(0);
+        l.fill(0);
+        l.textSize(50);
+        l.text(topPart, 250, 100);
+        l.textSize(10);
+        l.text(bottomPart, l.width / 2 - 75, 150);
+
         if (question1Done == false) {
             questionScreen1();
         } else if (question1Done == true && question2Done == false) {
