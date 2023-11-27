@@ -55,7 +55,23 @@ public class App extends PApplet {
 		// int whichTest = Integer.parseInt(args[0]);
 		// println("this is whichtest = " + whichTest);
 		// unitTests(whichTest);
-		PApplet.main("com.example.App");
+		int whichArg = Integer.parseInt(args[0]);
+
+		final int COMMANDLINE_ARG_FOR_UNIT_TEST = 2; // or whatever number you want to use, just tell me in the assign
+
+		if (whichArg != 2) {
+			PApplet.main("com.example.App");
+			println("Hola!");
+		} else if (whichArg == 2) {
+			testAndTrainProbGen();
+			generateMelody();
+			unitTest3();
+
+			testAndTrainProbGenMar();
+			generateMelodyM();
+			unitTest2();
+		}
+		// PApplet.main("com.example.App");
 		// TODO Auto-generated method stub
 
 	}
@@ -99,17 +115,7 @@ public class App extends PApplet {
 		} else if (s == 2) {
 			String topPart = "Name your child";
 			String bottomPart = "Do NOT input uppercase letters";
-			// if (g.getReset() == true) {
-			// text1 = "";
-			// finalName = "d";
-			// text2 = "";
-			// finalDate = "d";
-			// name1Entered = false;
-			// name2Entered = false;
 
-			// date1entered = false;
-			// date2entered = false;
-			// }
 			// draw background
 			// draw outerSquare
 			noStroke();
